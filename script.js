@@ -1,4 +1,4 @@
-// Hero background image slideshow
+// Hero background image slideshow with crossfade
 const heroImages = [
     'images/concrete-slabs.jpg',
     'images/block-wall.jpg',
@@ -11,24 +11,38 @@ const heroImages = [
 ];
 
 let currentImageIndex = 0;
-const heroBackground = document.querySelector('.hero-background');
+let isFirstLayer = true;
+const heroBg1 = document.querySelector('.hero-bg-1');
+const heroBg2 = document.querySelector('.hero-bg-2');
 
 function changeHeroBackground() {
-    if (heroBackground) {
-        heroBackground.style.opacity = '0';
+    if (heroBg1 && heroBg2) {
+        // Move to next image
+        currentImageIndex = (currentImageIndex + 1) % heroImages.length;
         
-        setTimeout(() => {
-            currentImageIndex = (currentImageIndex + 1) % heroImages.length;
-            heroBackground.style.backgroundImage = `url('${heroImages[currentImageIndex]}')`;
-            heroBackground.style.opacity = '1';
-        }, 1000);
+        if (isFirstLayer) {
+            // Load next image in second layer
+            heroBg2.style.backgroundImage = `url('${heroImages[currentImageIndex]}')`;
+            // Fade in second layer, fade out first layer
+            heroBg2.style.opacity = '1';
+            heroBg1.style.opacity = '0';
+        } else {
+            // Load next image in first layer
+            heroBg1.style.backgroundImage = `url('${heroImages[currentImageIndex]}')`;
+            // Fade in first layer, fade out second layer
+            heroBg1.style.opacity = '1';
+            heroBg2.style.opacity = '0';
+        }
+        
+        // Toggle which layer is active
+        isFirstLayer = !isFirstLayer;
     }
 }
 
 // Set initial background
-if (heroBackground) {
-    heroBackground.style.backgroundImage = `url('${heroImages[0]}')`;
-    heroBackground.style.opacity = '1';
+if (heroBg1) {
+    heroBg1.style.backgroundImage = `url('${heroImages[0]}')`;
+    heroBg1.style.opacity = '1';
     
     // Change background every 5 seconds
     setInterval(changeHeroBackground, 5000);

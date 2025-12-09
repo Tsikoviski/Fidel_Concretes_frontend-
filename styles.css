@@ -114,8 +114,16 @@ header {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    transition: opacity 1s ease-in-out;
+    transition: opacity 1.5s ease-in-out;
     z-index: 0;
+}
+
+.hero-bg-1 {
+    opacity: 1;
+}
+
+.hero-bg-2 {
+    opacity: 0;
 }
 
 .hero::before {
