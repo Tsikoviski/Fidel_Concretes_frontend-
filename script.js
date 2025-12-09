@@ -1,3 +1,39 @@
+// Hero background image slideshow
+const heroImages = [
+    'images/concrete-slabs.jpg',
+    'images/block-wall.jpg',
+    'images/landscaping.jpg',
+    'images/wall-panel.jpg',
+    'images/countertop.jpg',
+    'images/decorative.jpg',
+    'images/bench.jpg',
+    'images/steps.jpg'
+];
+
+let currentImageIndex = 0;
+const heroBackground = document.querySelector('.hero-background');
+
+function changeHeroBackground() {
+    if (heroBackground) {
+        heroBackground.style.opacity = '0';
+        
+        setTimeout(() => {
+            currentImageIndex = (currentImageIndex + 1) % heroImages.length;
+            heroBackground.style.backgroundImage = `url('${heroImages[currentImageIndex]}')`;
+            heroBackground.style.opacity = '1';
+        }, 1000);
+    }
+}
+
+// Set initial background
+if (heroBackground) {
+    heroBackground.style.backgroundImage = `url('${heroImages[0]}')`;
+    heroBackground.style.opacity = '1';
+    
+    // Change background every 5 seconds
+    setInterval(changeHeroBackground, 5000);
+}
+
 // Mobile menu toggle
 const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
 const navLinks = document.querySelector('.nav-links');
