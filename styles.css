@@ -481,6 +481,11 @@ section {
 
 .contact-info {
     font-size: 1.1rem;
+    color: var(--white);
+}
+
+.contact-info p {
+    color: var(--white);
 }
 
 .phone-number {
