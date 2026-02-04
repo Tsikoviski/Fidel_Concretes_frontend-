@@ -507,6 +507,31 @@ section {
     color: var(--secondary-color);
 }
 
+.location-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.location-link svg {
+    flex-shrink: 0;
+}
+
+.location-link a {
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.location-link a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
 /* Footer */
 footer {
     background: var(--primary-color);
