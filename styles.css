@@ -50,13 +50,24 @@ header {
     align-items: center;
 }
 
-.logo h1 {
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-image {
+    height: 50px;
+    width: auto;
+}
+
+.logo-text h1 {
     color: var(--primary-color);
     font-size: 1.8rem;
     margin-bottom: 0.2rem;
 }
 
-.logo .tagline {
+.logo-text .tagline {
     color: var(--gray);
     font-size: 0.9rem;
 }
@@ -524,6 +535,18 @@ footer p {
 @media (max-width: 768px) {
     .mobile-menu-toggle {
         display: flex;
+    }
+    
+    .logo-image {
+        height: 40px;
+    }
+    
+    .logo-text h1 {
+        font-size: 1.4rem;
+    }
+    
+    .logo-text .tagline {
+        font-size: 0.75rem;
     }
     
     .nav-links {
